@@ -1,1 +1,18 @@
-<p>view-post-by-id works!</p>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-10 col-sm-10 col-md-10">
+        <div class="card-body p-2">
+          <h5 class="card-title text-center">{{post.title}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Tags:
+            <div class="d-inline" *ngFor="let tag of post.tags"> {{tag | uppercase}}</div>
+          </li>
+          <li class="list-group-item">Content: {{post.content | titlecase}}</li>
+          <li class="list-group-item">Author: {{post.author}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

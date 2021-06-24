@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { Post } from './../post';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-view-post-by-id',
@@ -6,10 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-post-by-id.component.scss']
 })
 export class ViewPostByIdComponent implements OnInit {
-
-  constructor() { }
+  post: Post;
+  pid: string;
+  constructor(
+    public route: ActivatedRoute,
+    public router: Router,
+    public postsService: PostsService
+  ) {}
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.pid = params.get('id');
+      this.postsService.viewPostById(this.pid).subscribe(post => {
+        console.log(post);
+        this.post = post;
+      });
+    });
   }
-
 }
