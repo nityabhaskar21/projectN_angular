@@ -1,0 +1,26 @@
+<section>
+  <header class="display-4 text-center mb-1">All Posts</header>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4 " *ngFor="let p of posts">
+        <div class="card mt-1 mb-1 m-sm-1 m-md-2 m-lg-3">
+          <div class="card-body p-2">
+            <h5 class="card-title text-center">@ {{p.title}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Title: {{p.title | titlecase}}</li>
+            <li class="list-group-item">Content: {{p.content | titlecase}}</li>
+            <li class="list-group-item">Tags: {{p.tags }}</li>
+            <li class="list-group-item">Author: {{p.author | titlecase}}</li>
+          </ul>
+          <div class="card-body p-2 text-center">
+            <input type="button" class="btn btn-dark" value="View Post" routerLink="/posts/{{p._id}}">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</section>
