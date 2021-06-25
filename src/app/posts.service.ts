@@ -17,4 +17,8 @@ export class PostsService {
   viewPostById(id: string): Observable<any> {
     return this.http.get(`https://api-projectn.herokuapp.com/posts/${id}`);
   }
+
+  addPost(post: Post): Observable<any> {
+    return this.http.post(`https://api-projectn.herokuapp.com/posts`, post);
+  }
 }
