@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { PostsService } from '../posts.service';
 import { Post } from './../post';
+import { LoadingService } from '../util/loading.service';
 
 @Component({
   selector: 'app-viewall-posts',
@@ -11,7 +12,10 @@ import { Post } from './../post';
 export class ViewallPostsComponent implements OnInit {
   posts: Post[] = [];
 
-  constructor(public postsService: PostsService) {}
+  constructor(
+    public postsService: PostsService,
+    public loadingService: LoadingService
+  ) {}
 
   ngOnInit(): void {
     this.postsService.viewAllPosts().subscribe(data => {
