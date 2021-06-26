@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PostsService } from '../posts.service';
 import { Router } from '@angular/router';
 import { Post } from '../post';
+import { tagDropdownArray } from './../util/tagArray';
 import { NgForm } from '@angular/forms';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'app-create-post',
@@ -11,24 +13,47 @@ import { NgForm } from '@angular/forms';
 })
 export class CreatePostComponent implements OnInit {
   post: Post = new Post();
-  tags: [] = [];
+  dropdownTags = [];
+  selectedTags: [] = [];
+  dropdownSettings: IDropdownSettings;
   msg!: string;
   @ViewChild('frm')
   form: NgForm;
 
   constructor(public postService: PostsService, public router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dropdownTags = tagDropdownArray;
+
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+  }
 
   addPost() {
-    console.log(this.post);
+    console.log(this.selectedTags);
+    if (this.selectedTags.length === 0) {
+      this.post.tags.push('other');
+    } else {
+      this.post.tags = this.selectedTags;
+    }
 
-    this.postService.addPost(this.post).subscribe(res => {
-      if (res) {
-        this.msg = res;
+    this.postService.addPost(this.post).subscribe(
+      res => {
+        console.log('res', res);
+        this.msg = 'Post added!';
         this.router.navigateByUrl('/posts');
+      },
+      HttpError => {
+        this.msg = HttpError.error;
       }
-    });
+    );
 
     this.post = new Post();
     this.form.reset();
