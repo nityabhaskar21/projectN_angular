@@ -11,6 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 export class CreatePostComponent implements OnInit {
   post: Post = new Post();
+  tags: [] = [];
   msg!: string;
   @ViewChild('frm')
   form: NgForm;
@@ -20,6 +21,8 @@ export class CreatePostComponent implements OnInit {
   ngOnInit(): void {}
 
   addPost() {
+    console.log(this.post);
+
     this.postService.addPost(this.post).subscribe(res => {
       if (res) {
         this.msg = res;
