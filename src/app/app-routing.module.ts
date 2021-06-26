@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { ViewallPostsComponent } from './viewall-posts/viewall-posts.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ViewPostByIdComponent } from './view-post-by-id/view-post-by-id.component';
+import { CreatePostComponent } from './create-post/create-post.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/posts', pathMatch: 'full' },
+  { path: 'posts/create', component: CreatePostComponent },
   { path: 'posts/:id', component: ViewPostByIdComponent },
   { path: 'posts', component: ViewallPostsComponent },
   { path: '**', component: PageNotFoundComponent }

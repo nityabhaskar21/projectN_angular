@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MarkdownModule } from 'ngx-markdown';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -11,6 +13,7 @@ import { ViewPostByIdComponent } from './view-post-by-id/view-post-by-id.compone
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SpinnerComponent } from './util/spinner/spinner.component';
 import { InterceptorService } from './util/interceptor.service';
+import { CreatePostComponent } from './create-post/create-post.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,17 @@ import { InterceptorService } from './util/interceptor.service';
     ViewallPostsComponent,
     ViewPostByIdComponent,
     PageNotFoundComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CreatePostComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    MarkdownModule.forRoot(),
+    NgMultiSelectDropDownModule.forRoot()
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
   ],
