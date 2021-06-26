@@ -10,7 +10,7 @@
 export var tagDropdownArray = [
   'c++',
   'java',
-  'spring boot',
+  'springBoot',
   'css',
   'node',
   'other'
