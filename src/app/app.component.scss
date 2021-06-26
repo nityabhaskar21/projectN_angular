@@ -1,0 +1,14 @@
+a {
+  text-decoration: none;
+}
+
+#create {
+  background: linear-gradient(to right, rgba(8, 20, 185, 0.952), rgba(47, 0, 255, 0.966));
+  border-radius: 5px;
+  padding: 0.2rem;
+  padding-right: 0.4rem;
+}
+
+#create:hover {
+  background: rgb(0, 17, 255);
+}
