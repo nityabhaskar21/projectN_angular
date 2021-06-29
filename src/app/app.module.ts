@@ -6,6 +6,9 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import 'prismjs';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ViewallPostsComponent } from './viewall-posts/viewall-posts.component';

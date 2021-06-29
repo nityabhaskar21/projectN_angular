@@ -1,4 +1,5 @@
 <section>
+  <app-spinner *ngIf="loadingService.loadingS | async"></app-spinner>
   <div class="container">
     <div class="row">
       <div class="col-10 col-sm-10 col-md-10">
@@ -10,7 +11,7 @@
             <div class="d-inline" *ngFor="let tag of post.tags"> {{tag | uppercase}}</div>
           </li>
           <!-- <li class="list-group-item">Content: {{post.content | titlecase}}</li> -->
-          <markdown class="form-control" [data]="post.content" placeholder="Markdown"></markdown>
+          <markdown class="form-control" [data]="post.content" lineNumbers placeholder="Markdown"></markdown>
           <li class="list-group-item">Author: {{post.author}}</li>
         </ul>
       </div>
