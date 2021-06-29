@@ -46,7 +46,7 @@
     </div>
     <div class="form-group col-6">
       <label for="markdown">Generated Markdown</label>
-      <markdown class="form-control" id="markdown" [data]="post.content" placeholder="Markdown"></markdown>
+      <markdown class="form-control" id="markdown" [data]="post.content" lineNumbers placeholder="Markdown"></markdown>
       <div class="alert alert-danger" *ngIf="postcontent.touched && !postcontent.valid">
         <div *ngIf="postcontent.errors.required">Generated Markdown is empty.</div>
       </div>
