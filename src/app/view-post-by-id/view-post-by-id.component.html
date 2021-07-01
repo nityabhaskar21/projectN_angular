@@ -10,9 +10,11 @@
           <li class="list-group-item">Tags:
             <div class="d-inline" *ngFor="let tag of post.tags"> {{tag | uppercase}}</div>
           </li>
+          <li class="list-group-item">Author: {{post.author}}</li>
           <!-- <li class="list-group-item">Content: {{post.content | titlecase}}</li> -->
           <markdown class="form-control" [data]="post.content" lineNumbers placeholder="Markdown"></markdown>
-          <li class="list-group-item">Author: {{post.author}}</li>
+          <li class="list-group-item"><input type="button" class="btn btn-dark" value="Edit Blog"
+              routerLink="/posts/update/{{post.id}}"></li>
         </ul>
       </div>
     </div>

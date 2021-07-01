@@ -1,7 +1,7 @@
 <header class="display-4 text-center mb-1">Add Post</header>
 
 <div [hidden]="!msg" class="alert alert-success">{{msg}}</div>
-<form #frm="ngForm" class="container" (ngSubmit)="addPost()">
+<form #frm="ngForm" class="container" (ngSubmit)="updatePost()">
   <div class="row">
     <div class="col-4 form-group">
       <label for="posttitle">Title</label>
@@ -53,5 +53,5 @@
     </div>
 
   </div>
-  <button class="btn btn-primary" [disabled]="!frm.valid">Create Post</button>
+  <button class="btn btn-primary" [disabled]="!frm.valid">Update Post</button>
 </form>
