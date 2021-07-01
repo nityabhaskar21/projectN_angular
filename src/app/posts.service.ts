@@ -9,21 +9,32 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PostsService {
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient) {
+    this.urlString = 'https://api-projectn.herokuapp.com/posts';
+  }
+
+  urlString: string;
 
   viewAllPosts(): Observable<any> {
-    return this.http.get('https://api-projectn.herokuapp.com/posts');
+    return this.http.get(this.urlString);
   }
 
   viewPostById(id: string): Observable<any> {
-    return this.http.get(`https://api-projectn.herokuapp.com/posts/${id}`);
+    return this.http.get(`${this.urlString}/${id}`);
   }
 
   addPost(post: Post): Observable<any> {
     return this.http
-      .post(`https://api-projectn.herokuapp.com/posts`, post)
+      .post(`${this.urlString}`, post)
       .pipe(catchError(this.handleError));
   }
+
+  updatePost(post: Post): Observable<any> {
+    return this.http
+      .put(`${this.urlString}/${post.id}`, post)
+      .pipe(catchError(this.handleError));
+  }
+
   handleError(error) {
     return throwError(error || 'Server error!');
   }

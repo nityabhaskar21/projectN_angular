@@ -17,6 +17,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { SpinnerComponent } from './util/spinner/spinner.component';
 import { InterceptorService } from './util/interceptor.service';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { UpdatePostComponent } from './update-post/update-post.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CreatePostComponent } from './create-post/create-post.component';
     ViewPostByIdComponent,
     PageNotFoundComponent,
     SpinnerComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    UpdatePostComponent
   ],
   imports: [
     BrowserModule,
