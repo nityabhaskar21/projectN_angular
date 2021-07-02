@@ -3,20 +3,26 @@
   <app-spinner *ngIf="loadingService.loadingS | async"></app-spinner>
   <div class="container">
     <div class="row">
-      <div class="col-12 col-sm-6 col-md-4 " *ngFor="let p of posts">
-        <div class="card mt-1 mb-1 m-sm-1 m-md-2 m-lg-3">
-          <div class="card-body p-2">
-            <h5 class="card-title text-center">@ {{ p.title }}</h5>
+      <div class="c-container col-12 col-sm-6 col-md-4" *ngFor="let p of posts">
+        <div class="c-card mt-1 mb-1 m-sm-1 m-md-2 m-lg-3">
+          <div class="p-2 mb-4 mt-3">
+            <h4 class="text-center text-decoration-underline"> {{ p.title | titlecase}}</h4>
           </div>
-          <ul class="list-group list-group-flush">
+          <div id="tag-container" class="mb-4">
+            <span id="tag" *ngFor="let tag of p.tags">{{ tag }}</span>
+          </div>
+          <div class="p-2 mb-4">
+            <h5 class=" text-center">Author: @{{ p.author }}</h5>
+          </div>
+          <!-- <ul class="list-group list-group-flush">
             <li class="list-group-item">Title: {{ p.title | titlecase }}</li>
             <li class="list-group-item">
               Content: {{ p.content | titlecase }}
             </li>
             <li class="list-group-item">Tags: {{ p.tags }}</li>
             <li class="list-group-item">Author: {{ p.author | titlecase }}</li>
-          </ul>
-          <div class="card-body p-2 text-center">
+          </ul> -->
+          <div class="p-2 text-center">
             <input type="button" class="btn btn-dark" value="View Post" routerLink="/posts/{{ p.id }}" />
           </div>
         </div>
