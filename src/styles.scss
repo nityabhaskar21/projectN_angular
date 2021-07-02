@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Satisfy&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Satisfy&display=swap');
+
+:root {
+  --c-light-red: rgb(255, 113, 113);
+  --c-red: rgb(255, 70, 70);
+  --c-dark-red: rgb(207, 10, 44);
+  --c-orange: rgb(254, 168, 47);
+  --c-dark-orange: rgb(255, 103, 1);
+  --c-green: rgb(97, 177, 90);
+  --c-gray: rgb(162, 178, 159);
+  --c-dark-gray: rgb(121, 135, 119);
+  --c-white: rgb(252, 248, 232);
+  --c-white2: rgb(244, 249, 249);
+  --c-white3: rgb(213, 226, 219);
+  --c-black: rgb(23, 23, 23);
+  --c-light-yellow: rgb(245, 233, 101);
+  --c-dark-yellow: rgb(255, 201, 60);
+}

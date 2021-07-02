@@ -5,23 +5,41 @@
     <div class="row">
       <div class="c-container col-12 col-sm-6 col-md-4" *ngFor="let p of posts">
         <div class="c-card mt-1 mb-1 m-sm-1 m-md-2 m-lg-3">
+          <div id="image-div"></div>
+          <div class="p-2 mb-2 mt-1">
+            <h4 class="text-center "> {{ p.title | titlecase}}</h4>
+          </div>
+          <div id="tag-container" class="mb-2">
+            <span id="tag" *ngFor="let tag of p.tags">{{ tag | titlecase}}</span>
+          </div>
+          <div id="button-container" class="p-2 mb-2 text-center">
+            <input id="button" type="button" class="btn" value="View Post  ->" routerLink="/posts/{{ p.id }}" />
+          </div>
+          <div id="author-container" class="p-2 ">
+            <h5 class="text-center">Author: @{{ p.author }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section>
+  <header class="display-6 text-center mb-1">All Posts</header>
+  <app-spinner *ngIf="loadingService.loadingS | async"></app-spinner>
+  <div class="container">
+    <div class="row">
+      <div class="c-container col-12 col-sm-6 col-md-4" *ngFor="let p of posts">
+        <div class="c-card mt-1 mb-1 m-sm-1 m-md-2 m-lg-3">
           <div class="p-2 mb-4 mt-3">
-            <h4 class="text-center text-decoration-underline"> {{ p.title | titlecase}}</h4>
+            <h4 class="text-center "> {{ p.title | titlecase}}</h4>
           </div>
           <div id="tag-container" class="mb-4">
-            <span id="tag" *ngFor="let tag of p.tags">{{ tag }}</span>
+            <span id="tag" *ngFor="let tag of p.tags">{{ tag | titlecase}}</span>
           </div>
           <div class="p-2 mb-4">
             <h5 class=" text-center">Author: @{{ p.author }}</h5>
           </div>
-          <!-- <ul class="list-group list-group-flush">
-            <li class="list-group-item">Title: {{ p.title | titlecase }}</li>
-            <li class="list-group-item">
-              Content: {{ p.content | titlecase }}
-            </li>
-            <li class="list-group-item">Tags: {{ p.tags }}</li>
-            <li class="list-group-item">Author: {{ p.author | titlecase }}</li>
-          </ul> -->
           <div class="p-2 text-center">
             <input type="button" class="btn btn-dark" value="View Post" routerLink="/posts/{{ p.id }}" />
           </div>
@@ -29,4 +47,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->

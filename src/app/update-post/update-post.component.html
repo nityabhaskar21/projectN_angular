@@ -6,7 +6,7 @@
     <div class="col-4 form-group">
       <label for="posttitle">Title</label>
       <input [(ngModel)]="post.title" #posttitle="ngModel" name="txtposttitle" type="text" id="posttitle"
-        class="form-control" required minlength="3" maxlength="30" pattern="[0-9a-zA-Z_ ]*" autocomplete="off">
+        class="form-control" required minlength="3" maxlength="100" pattern="[0-9a-zA-Z_ ]*" autocomplete="off">
       <div class="alert alert-danger" *ngIf="posttitle.touched && !posttitle.valid">
         <div *ngIf="posttitle.errors.required">Title is required.</div>
         <div *ngIf="posttitle.errors.minlength">Title must be atleast 3 characters long.</div>
