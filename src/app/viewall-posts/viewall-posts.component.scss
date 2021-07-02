@@ -1,0 +1,53 @@
+section {
+  background: rgb(244, 240, 236);
+}
+
+.c-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+
+.c-container .c-card {
+  position: relative;
+  box-shadow: 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.5);
+  border-top-right-radius: 0.2rem;
+  background-image: linear-gradient(to right bottom,
+      rgb(2, 170, 176, 0.85),
+      rgb(0, 205, 172, 0.85)),
+    url(./../../assets/coding.jpg);
+
+  background-size: cover;
+  background-position: top;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+  min-width: 15rem;
+  min-height: 20rem;
+
+  clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%);
+  transition: all 0.4s;
+
+  &:hover {
+    clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 100%);
+    background-image: linear-gradient(to right bottom,
+        rgb(2, 170, 176, 0.8),
+        rgb(0, 205, 172, 0.8)),
+      url(./../../assets/coding.jpg);
+  }
+}
+
+#tag-container {
+  display: flex;
+  align-content: center;
+  padding: 0 1rem 0 1rem;
+
+  #tag {
+    background: rgb(0, 0, 0);
+    color: wheat;
+    margin: 0 0.3rem 0 0.3rem;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+  }
+}
