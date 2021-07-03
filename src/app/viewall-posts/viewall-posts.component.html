@@ -6,8 +6,14 @@
       <div class="c-container col-12 col-sm-6 col-md-4" *ngFor="let p of posts">
         <div class="c-card mt-1 mb-1 m-sm-1 m-md-2 m-lg-3">
           <div id="image-div"></div>
-          <div class="p-2 mb-2 mt-1">
-            <h4 class="text-center "> {{ p.title | titlecase}}</h4>
+          <div class="p-2 pb-1 mt-1">
+            <h4 class="text-center "> {{ p.title | slice:0:57}} <span
+                *ngIf="p.title != null && p.title.length > 60">...</span></h4>
+          </div>
+          <div id="desc-container" class="p-2 pt-1 mb-2">
+            <h5 class="text-center "> {{ p.description | slice:0:100}} <span
+                *ngIf="p.description != null && p.description.length > 100">...</span>
+            </h5>
           </div>
           <div id="tag-container" class="mb-2">
             <span id="tag" *ngFor="let tag of p.tags">{{ tag | titlecase}}</span>
