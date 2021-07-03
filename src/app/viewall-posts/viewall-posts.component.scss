@@ -31,6 +31,16 @@ section {
   }
 }
 
+#desc-container {
+  color: var(--c-red);
+
+  h5 {
+    font-weight: 600;
+    font-style: italic;
+  }
+
+}
+
 .c-container {
 
   .c-card {

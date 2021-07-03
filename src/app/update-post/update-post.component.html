@@ -31,7 +31,36 @@
         [(ngModel)]="selectedTags" name="txtselectedTags" id="selectedTags" required>
       </ng-multiselect-dropdown>
     </div>
+  </div>
 
+  <div class="row">
+    <div class="col-8 form-group">
+      <label for="postdesc">Description</label>
+      <input [(ngModel)]="post.description" #postdesc="ngModel" name="txtpostdesc" type="text" id="postdesc"
+        class="form-control" required minlength="60" maxlength="300" pattern="[0-9a-zA-Z_ .]*" autocomplete="off">
+      <div class="alert alert-danger" *ngIf="postdesc.touched && !postdesc.valid">
+        <div *ngIf="postdesc.errors.required">Description is required.</div>
+        <div *ngIf="postdesc.errors.minlength">Description must be atleast 60 characters long.</div>
+        <div *ngIf="postdesc.errors.maxlength">Description must be maximum 300 characters long.</div>
+        <div *ngIf="postdesc.errors.pattern">Description must not contain special characters.</div>
+      </div>
+    </div>
+
+    <div class="col-4 form-group">
+      <label for="category">Category</label>
+      <select required [(ngModel)]="post.category" #category="ngModel" name="txtcategory" class="form-control"
+        id="category" placeholder="Select a category ">
+        <option value="coding" selected>Coding</option>
+        <option value="technology">Technology</option>
+        <option value="fiction">Fiction</option>
+        <option value="gaming">Gaming</option>
+        <option value="bio">Biography</option>
+        <option value="misc">Miscellaneous</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="category.touched && !category.valid">
+        <div *ngIf="category.errors.required">Category is required.</div>
+      </div>
+    </div>
   </div>
 
   <div class="row align-items-center my-3">
