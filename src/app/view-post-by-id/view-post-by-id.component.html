@@ -16,7 +16,8 @@
 
     <div class="row mb-2">
       <div id="" class="">
-        <div id="" class="mx-2 fs-4"><span id="description" class="fw-bold">Description: </span>{{post.description}}
+        <div id="" class="mx-2 fs-4"><span id="description" class="fw-bold">Description: </span>
+          <span *ngIf="post.description == null ">Not Available</span> {{post.description}}
         </div>
       </div>
     </div>
