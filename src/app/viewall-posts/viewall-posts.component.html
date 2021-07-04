@@ -1,5 +1,5 @@
 <section>
-  <header class="display-6 text-center mb-1">All Posts</header>
+  <header class="display-5 text-center mb-1">All Posts</header>
   <app-spinner *ngIf="loadingService.loadingS | async"></app-spinner>
   <div class="container">
     <div class="row">
@@ -10,7 +10,7 @@
             <h4 class="text-center "> {{ p.title | slice:0:57}} <span
                 *ngIf="p.title != null && p.title.length > 60">...</span></h4>
           </div>
-          <div id="desc-container" class="p-2 pt-1 mb-2">
+          <div id="desc-container" class="p-1 pt-1 mb-2">
             <h5 class="text-center "> {{ p.description | slice:0:100}} <span
                 *ngIf="p.description != null && p.description.length > 100">...</span>
             </h5>

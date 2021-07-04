@@ -2,16 +2,53 @@
   <app-spinner *ngIf="loadingService.loadingS | async"></app-spinner>
   <div class="container">
     <div class="row">
+      <div class="col-12">
+        <div class="p-2">
+          <h5 class="card-title text-center display-2">{{post.title}}</h5>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div id="tag-container" class="">
+        <div id="tag" class="mx-2" *ngFor="let tag of post.tags"> {{tag | uppercase}}</div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div id="" class="">
+        <div id="" class="mx-2 fs-4"><span class="text-danger fw-bold">Description: </span>{{post.description}}
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div id="" class="">
+        <markdown class="form-control fs-5" [data]="post.content" lineNumbers placeholder="Markdown"></markdown>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="contribute-container" class="">
+        <span id="contribute-author">Contributed By: {{post.author}}</span>
+        <span id="contribute-created">{{post.createdAt | slice:0:10}}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section>
+  <app-spinner *ngIf="loadingService.loadingS | async"></app-spinner>
+  <div class="container">
+    <div class="row">
       <div class="col-10 col-sm-10 col-md-10">
         <div class="card-body p-2">
-          <h5 class="card-title text-center">{{post.title}}</h5>
+          <h5 class="card-title text-center display-2">{{post.title}}</h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Tags:
-            <div class="d-inline" *ngFor="let tag of post.tags"> {{tag | uppercase}}</div>
+          <li id="tag-container" class="list-group-item">
+            <div id="tag" class="d-inline" *ngFor="let tag of post.tags"> {{tag | uppercase}}</div>
           </li>
           <li class="list-group-item">Author: {{post.author}}</li>
-          <!-- <li class="list-group-item">Content: {{post.content | titlecase}}</li> -->
           <markdown class="form-control" [data]="post.content" lineNumbers placeholder="Markdown"></markdown>
           <li class="list-group-item"><input type="button" class="btn btn-dark" value="Edit Blog"
               routerLink="/posts/update/{{post.id}}"></li>
@@ -19,4 +56,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
