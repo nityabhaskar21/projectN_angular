@@ -14,8 +14,8 @@ markdown {
   padding: 0 1rem 0 1rem;
 
   #tag {
-    background: var(--c-red);
-    color: var(--c-white3);
+    background: var(--c-green);
+    color: var(--c-white2);
     margin: 0 0.2rem 0 0.2rem;
     padding: 0.2rem 0.4rem;
     border-radius: 0.2rem;
@@ -23,12 +23,16 @@ markdown {
   }
 }
 
+#description {
+  color: var(--c-dark-red);
+}
+
 #contribute-container {
   font-family: 'PT Sans', sans-serif;
   font-family: 'Satisfy', cursive;
   font-size: 2rem;
 
-  color: var(--c-dark-orange);
+  color: var(--c-green);
 
   #contribute-author {
     margin-right: 2rem;
@@ -36,4 +40,13 @@ markdown {
   }
 
   #contribute-created {}
+}
+
+.button-container {
+  margin-left: 90%;
+
+  #button {
+    background-color: var(--c-dark-red);
+    color: var(--c-white);
+  }
 }

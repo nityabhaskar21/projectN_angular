@@ -14,11 +14,17 @@
       </div>
     </div>
 
-    <div class="row mb-3">
+    <div class="row mb-2">
       <div id="" class="">
-        <div id="" class="mx-2 fs-4"><span class="text-danger fw-bold">Description: </span>{{post.description}}
+        <div id="" class="mx-2 fs-4"><span id="description" class="fw-bold">Description: </span>{{post.description}}
         </div>
       </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="button-container"><input type="button" id="button" class="btn" value="Edit Blog"
+          routerLink="/posts/update/{{post.id}}"></div>
+
     </div>
 
     <div class="row mb-2">
