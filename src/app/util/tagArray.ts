@@ -13,5 +13,6 @@ export var tagDropdownArray = [
   'springBoot',
   'css',
   'node',
+  'js',
   'other'
 ];
