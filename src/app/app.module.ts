@@ -18,6 +18,12 @@ import { SpinnerComponent } from './util/spinner/spinner.component';
 import { InterceptorService } from './util/interceptor.service';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { UpdatePostComponent } from './update-post/update-post.component';
+import { CreateUserComponent } from './user/create-user/create-user.component';
+import { LoginComponent } from './user/login/login.component';
+import { SignupComponent } from './user/signup/signup.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
+import { ViewallUsersComponent } from './user/viewall-users/viewall-users.component';
+import { ViewUserByIdComponent } from './user/view-user-by-id/view-user-by-id.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,13 @@ import { UpdatePostComponent } from './update-post/update-post.component';
     PageNotFoundComponent,
     SpinnerComponent,
     CreatePostComponent,
-    UpdatePostComponent
+    UpdatePostComponent,
+    CreateUserComponent,
+    LoginComponent,
+    SignupComponent,
+    UpdateUserComponent,
+    ViewallUsersComponent,
+    ViewUserByIdComponent
   ],
   imports: [
     BrowserModule,
