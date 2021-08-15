@@ -9,6 +9,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import 'prismjs';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
 
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ViewallPostsComponent } from './viewall-posts/viewall-posts.component';
@@ -18,6 +20,14 @@ import { SpinnerComponent } from './util/spinner/spinner.component';
 import { InterceptorService } from './util/interceptor.service';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { UpdatePostComponent } from './update-post/update-post.component';
+import { CreateUserComponent } from './user/create-user/create-user.component';
+import { LoginComponent } from './user/login/login.component';
+import { SignupComponent } from './user/signup/signup.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
+import { ViewallUsersComponent } from './user/viewall-users/viewall-users.component';
+import { ViewUserByIdComponent } from './user/view-user-by-id/view-user-by-id.component';
+import { ViewUserByUsernameComponent } from './user/view-user-by-username/view-user-by-username.component';
+import { LogoutComponent } from './user/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +37,15 @@ import { UpdatePostComponent } from './update-post/update-post.component';
     PageNotFoundComponent,
     SpinnerComponent,
     CreatePostComponent,
-    UpdatePostComponent
+    UpdatePostComponent,
+    CreateUserComponent,
+    LoginComponent,
+    SignupComponent,
+    UpdateUserComponent,
+    ViewallUsersComponent,
+    ViewUserByIdComponent,
+    ViewUserByUsernameComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +56,9 @@ import { UpdatePostComponent } from './update-post/update-post.component';
     NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
   ],
   bootstrap: [AppComponent]
 })
