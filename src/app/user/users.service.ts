@@ -39,22 +39,26 @@ export class UsersService {
     );
   }
 
-  loginUser(login: Login): any {
-    return this.authService.loginUser(login).subscribe(
-      (res: any) => {
-        console.log('res from auth: ', res);
-        let token = res.jwt;
-        if (token && token.length != 0) {
-          this.authService.addToken(token);
-          this.router.navigateByUrl('/posts').then(() => {
-            window.location.reload();
-          });
+  loginUser(login: Login): Promise<string> {
+    return new Promise(resolve => {
+      this.authService.loginUser(login).subscribe(
+        (res: any) => {
+          console.log('res from auth: ', res);
+          let token = res.jwt;
+          if (token && token.length != 0) {
+            this.authService.addToken(token);
+            this.router.navigateByUrl('/posts').then(() => {
+              window.location.reload();
+            });
+            resolve('success');
+          }
+        },
+        HttpError => {
+          console.log('error: ', HttpError.error);
+          resolve(HttpError.error);
         }
-      },
-      HttpError => {
-        return HttpError;
-      }
-    );
+      );
+    });
   }
 
   addUser(user: User): Observable<any> {

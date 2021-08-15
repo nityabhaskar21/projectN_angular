@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   loginUser() {
-    this.userService.loginUser(this.login);
+    this.userService.loginUser(this.login).then(val => {
+      this.msg = val;
+    });
 
     this.login = new Login();
     this.form.reset();
