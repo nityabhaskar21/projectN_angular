@@ -9,6 +9,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import 'prismjs';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
 
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ViewallPostsComponent } from './viewall-posts/viewall-posts.component';
@@ -24,6 +26,8 @@ import { SignupComponent } from './user/signup/signup.component';
 import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { ViewallUsersComponent } from './user/viewall-users/viewall-users.component';
 import { ViewUserByIdComponent } from './user/view-user-by-id/view-user-by-id.component';
+import { ViewUserByUsernameComponent } from './user/view-user-by-username/view-user-by-username.component';
+import { LogoutComponent } from './user/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,9 @@ import { ViewUserByIdComponent } from './user/view-user-by-id/view-user-by-id.co
     SignupComponent,
     UpdateUserComponent,
     ViewallUsersComponent,
-    ViewUserByIdComponent
+    ViewUserByIdComponent,
+    ViewUserByUsernameComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,9 @@ import { ViewUserByIdComponent } from './user/view-user-by-id/view-user-by-id.co
     NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,1 +1,31 @@
-<p>viewall-users works!</p>
+<!-- <section>
+  <header class="display-5 text-center mb-1">All Posts</header>
+  <app-spinner *ngIf="loadingService.loadingS | async"></app-spinner>
+  <div class="container">
+    <div class="row">
+      <div class="c-container col-12 col-sm-6 col-md-4" *ngFor="let user of users">
+        <div class="c-card mt-1 mb-1 m-sm-1 m-md-2 m-lg-3">
+          <div id="image-div"></div>
+          <div class="p-2 pb-1 mt-1">
+            <h4 class="text-center "> {{ p.title | slice:0:57}} <span
+                *ngIf="user.title != null && user.title.length > 60">...</span></h4>
+          </div>
+          <div id="desc-container" class="p-1 pt-1 mb-2">
+            <h5 class="text-center "> {{ p.description | slice:0:100}} <span
+                *ngIf="user.description != null && user.description.length > 100">...</span>
+            </h5>
+          </div>
+          <div id="tag-container" class="mb-2">
+            <span id="tag" *ngFor="let tag of user.tags">{{ tag | titlecase}}</span>
+          </div>
+          <div id="button-container" class="p-2 mb-2 text-center">
+            <input id="button" type="button" class="btn" value="View Post  ->" routerLink="/posts/{{ user.id }}" />
+          </div>
+          <div id="author-container" class="p-2 ">
+            <h5 class="text-center">Author: @{{ user.author }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->

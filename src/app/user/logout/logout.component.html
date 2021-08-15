@@ -1,0 +1,10 @@
+<header class="display-4 text-center mb-1">Logout</header>
+<div [hidden]="!msg" class="alert alert-success">{{msg}}</div>
+<div [hidden]="msg" class="card col-6 mx-auto">
+  <div class="card-body">
+    <h5 class="card-title">Logout Now!</h5>
+    <p class="card-text">Click Logout Button to logout now</p>
+    <a (click)="logout()" class="btn btn-primary">Logout</a>
+    <a class="btn btn-danger ml-4" (click)="cancellogout()">Cancel</a>
+  </div>
+</div>

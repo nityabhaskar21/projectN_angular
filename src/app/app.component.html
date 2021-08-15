@@ -1,9 +1,21 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <ul class="navbar-nav ms-3">
+  <ul class="navbar-nav ms-3 me-auto">
     <li class="nav-item navbar-brand"><a routerLink="/posts" class="text-white">ProjectN</a></li>
   </ul>
-  <ul class="navbar-nav ms-auto me-4">
+  <ul class="navbar-nav ms-auto" *ngIf="isLogged">
     <li id="create" class="nav-item "><a routerLink="/posts/create" class=" text-white nav-link">+ Create </a></li>
+  </ul>
+  <ul class="navbar-nav  me-4" *ngIf="!isLogged">
+    <li id="login" class="nav-item "><a routerLink="/users/login" class=" text-white nav-link">Login</a></li>
+  </ul>
+
+  <ul class="navbar-nav ms-1" *ngIf="isLogged">
+    <li id="unameli" class="nav-item "><a id="unamea" class=" text-white nav-link" (click)="toggleLogout()">{{username |
+      titlecase | slice:0:8}} </a>
+    </li>
+    <li class="nav-item" *ngIf="toggleButtonVisible"><a routerLink="/users/logout"
+        class=" text-white nav-link">Logout</a>
+    </li>
   </ul>
 </nav>
 

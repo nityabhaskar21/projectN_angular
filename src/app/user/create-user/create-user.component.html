@@ -18,10 +18,10 @@
     <div class="col-4 form-group">
       <label for="password">Password</label>
       <input [(ngModel)]="user.password" #password="ngModel" name="txtpassword" type="password" id="password"
-        class="form-control" required minlength="3" maxlength="20" autocomplete="off">
+        class="form-control" required minlength="8" maxlength="20" autocomplete="off">
       <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
         <div *ngIf="password.errors.required">Password is required.</div>
-        <div *ngIf="password.errors.minlength">Password must be atleast 3 characters long.</div>
+        <div *ngIf="password.errors.minlength">Password must be atleast 8 characters long.</div>
         <div *ngIf="password.errors.maxlength">Password must be maximum 20 characters long.</div>
       </div>
     </div>

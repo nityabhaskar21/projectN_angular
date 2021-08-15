@@ -10,7 +10,7 @@ export class User {
   email: string;
   posts: Array<Post>;
   about: string;
-  role: Role;
+  role: Role = Role.USER;
   createdAt: string;
   updatedAt: string;
 }
