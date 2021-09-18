@@ -5,6 +5,7 @@ import { LoadingService } from '../../util/loading.service';
 import { Post } from './../post';
 import { PostsService } from '../posts.service';
 import { AuthenticateService } from '../../user/authenticate.service';
+import { post } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-view-post-by-id',
@@ -15,6 +16,7 @@ export class ViewPostByIdComponent implements OnInit {
   post: Post;
   pid: string;
   isLogged: Boolean = false;
+  isEditable: Boolean = false;
   constructor(
     public route: ActivatedRoute,
     public router: Router,
@@ -31,7 +33,19 @@ export class ViewPostByIdComponent implements OnInit {
       this.postsService.viewPostById(this.pid).subscribe(post => {
         console.log(post);
         this.post = post;
+        this.isPostEditable();
       });
     });
+  }
+
+  isPostEditable(): Boolean {
+    if (
+      this.post.username != null &&
+      this.isLogged &&
+      this.post.username == this.authenticateService.getTokenUsername()
+    ) {
+      this.isEditable = true;
+    }
+    return this.isEditable;
   }
 }

@@ -10,7 +10,7 @@ section {
 
 #image-div {
   background-image: linear-gradient(to right, rgb(20, 30, 48, 0.7), rgb(36, 59, 85, 0.7)),
-    url(./../../assets/coding.jpg);
+    url(./../../../assets/coding.jpg);
   background-size: cover;
   background-position: top;
   height: 9rem;
@@ -34,6 +34,7 @@ section {
 
 #desc-container {
   color: var(--c-red);
+  overflow: hidden;
 
   h5 {
     font-weight: 600;

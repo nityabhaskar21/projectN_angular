@@ -22,9 +22,9 @@
       </div>
     </div>
 
-    <div class="row mb-1">
-      <div class="button-container"><input type="button" [disabled]="!isLogged" id="button" class="btn"
-          value="Edit Blog" routerLink="/posts/update/{{post.id}}"></div>
+    <div class="row mb-1" *ngIf="isEditable">
+      <div class="button-container"><input type="button" id="button" class="btn" value="Edit Blog"
+          routerLink="/posts/update/{{post.id}}"></div>
     </div>
 
     <div class="row mb-2">
