@@ -4,6 +4,7 @@ import { LoadingService } from '../util/loading.service';
 
 import { Post } from './../post';
 import { PostsService } from '../posts.service';
+import { AuthenticateService } from '../user/authenticate.service';
 
 @Component({
   selector: 'app-view-post-by-id',
@@ -13,12 +14,16 @@ import { PostsService } from '../posts.service';
 export class ViewPostByIdComponent implements OnInit {
   post: Post;
   pid: string;
+  isLogged: Boolean = false;
   constructor(
     public route: ActivatedRoute,
     public router: Router,
     public postsService: PostsService,
-    public loadingService: LoadingService
-  ) {}
+    public loadingService: LoadingService,
+    public authenticateService: AuthenticateService
+  ) {
+    this.isLogged = this.authenticateService.isLogged();
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {

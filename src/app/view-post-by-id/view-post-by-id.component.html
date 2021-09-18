@@ -23,9 +23,8 @@
     </div>
 
     <div class="row mb-1">
-      <div class="button-container"><input type="button" id="button" class="btn" value="Edit Blog"
-          routerLink="/posts/update/{{post.id}}"></div>
-
+      <div class="button-container"><input type="button" [disabled]="!isLogged" id="button" class="btn"
+          value="Edit Blog" routerLink="/posts/update/{{post.id}}"></div>
     </div>
 
     <div class="row mb-2">
@@ -42,25 +41,3 @@
     </div>
   </div>
 </section>
-
-<!-- <section>
-  <app-spinner *ngIf="loadingService.loadingS | async"></app-spinner>
-  <div class="container">
-    <div class="row">
-      <div class="col-10 col-sm-10 col-md-10">
-        <div class="card-body p-2">
-          <h5 class="card-title text-center display-2">{{post.title}}</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li id="tag-container" class="list-group-item">
-            <div id="tag" class="d-inline" *ngFor="let tag of post.tags"> {{tag | uppercase}}</div>
-          </li>
-          <li class="list-group-item">Author: {{post.author}}</li>
-          <markdown class="form-control" [data]="post.content" lineNumbers placeholder="Markdown"></markdown>
-          <li class="list-group-item"><input type="button" class="btn btn-dark" value="Edit Blog"
-              routerLink="/posts/update/{{post.id}}"></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section> -->

@@ -25,12 +25,28 @@ const routes: Routes = [
   },
   { path: 'users/signup', component: SignupComponent },
   { path: 'users/login', component: LoginComponent },
-  { path: 'users/logout', component: LogoutComponent },
-  { path: 'users/update/:id', component: UpdateUserComponent },
+  {
+    path: 'users/logout',
+    component: LogoutComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'users/update/:id',
+    component: UpdateUserComponent,
+    canActivate: [AuthGuard]
+  },
   { path: 'users/:id', component: ViewUserByIdComponent },
   { path: 'users', component: ViewallUsersComponent },
-  { path: 'posts/create', component: CreatePostComponent },
-  { path: 'posts/update/:id', component: UpdatePostComponent },
+  {
+    path: 'posts/create',
+    component: CreatePostComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'posts/update/:id',
+    component: UpdatePostComponent,
+    canActivate: [AuthGuard]
+  },
   { path: 'posts/:id', component: ViewPostByIdComponent },
   { path: 'posts', component: ViewallPostsComponent },
   { path: '**', component: PageNotFoundComponent }
