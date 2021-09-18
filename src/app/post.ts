@@ -8,5 +8,6 @@ export class Post {
   createdAt: string;
   updatedAt: string;
   content: string;
+  username: string;
   // comments: Array<Map<string, string>
 }
