@@ -2,21 +2,28 @@
   <ul class="navbar-nav ms-3 me-auto">
     <li class="nav-item navbar-brand"><a routerLink="/posts" class="text-white">ProjectN</a></li>
   </ul>
+
   <ul class="navbar-nav ms-auto" *ngIf="isLogged">
     <li id="create" class="nav-item "><a routerLink="/posts/create" class=" text-white nav-link">+ Create </a></li>
   </ul>
+
   <ul class="navbar-nav  me-4" *ngIf="!isLogged">
-    <li id="login" class="nav-item "><a routerLink="/users/login" class=" text-white nav-link">Login</a></li>
+    <li id="login" class="nav-item "><a routerLink="/users/login" class="btn btn-danger text-white nav-link">Login</a>
+    </li>
   </ul>
 
-  <ul class="navbar-nav ms-1" *ngIf="isLogged">
-    <li id="unameli" class="nav-item "><a id="unamea" class=" text-white nav-link" (click)="toggleLogout()">{{username |
-      titlecase | slice:0:8}} </a>
-    </li>
-    <li class="nav-item" *ngIf="toggleButtonVisible"><a routerLink="/users/logout"
-        class=" text-white nav-link">Logout</a>
+  <ul class="navbar-nav ms-2 me-5" *ngIf="isLogged">
+    <li class="nav-item dropdown" id="unameli">
+      <a class="nav-link dropdown-toggle text-white nav-link" id="navbarDarkDropdownMenuLink" (click)="toggleButton()">
+        {{username |
+            titlecase | slice:0:8}}
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark" *ngIf="toggleButtonVisible" id="nav-dropdown-menu">
+        <li><a class="dropdown-item" routerLink="/users/logout" (click)="toggleButton()">Logout</a></li>
+      </ul>
     </li>
   </ul>
+
 </nav>
 
 <router-outlet></router-outlet>
