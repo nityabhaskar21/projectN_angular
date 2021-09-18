@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticateService } from '../authenticate.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-logout',
@@ -10,7 +11,11 @@ import { AuthenticateService } from '../authenticate.service';
 export class LogoutComponent implements OnInit {
   msg!: string;
   username: string;
-  constructor(public router: Router, public authService: AuthenticateService) {}
+  constructor(
+    public router: Router,
+    public authService: AuthenticateService,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {}
 
@@ -26,5 +31,6 @@ export class LogoutComponent implements OnInit {
 
   cancellogout() {
     this.msg = 'Logout Cancelled!';
+    this.location.back();
   }
 }

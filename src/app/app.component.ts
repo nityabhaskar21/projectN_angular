@@ -18,7 +18,7 @@ export class AppComponent {
   }
   ngOnInit(): void {}
 
-  toggleLogout() {
+  toggleButton() {
     this.toggleButtonVisible = !this.toggleButtonVisible;
   }
 }
