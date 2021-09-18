@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PostsService } from '../posts.service';
 import { Router } from '@angular/router';
 import { Post } from '../post';
-import { tagDropdownArray } from './../util/tagArray';
+import { tagDropdownArray } from './../../util/tagArray';
 import { NgForm } from '@angular/forms';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { AuthenticateService } from 'src/app/user/authenticate.service';
 
 @Component({
   selector: 'app-create-post',
@@ -20,7 +21,11 @@ export class CreatePostComponent implements OnInit {
   @ViewChild('frm')
   form: NgForm;
 
-  constructor(public postService: PostsService, public router: Router) {}
+  constructor(
+    public postService: PostsService,
+    public router: Router,
+    public authenticateService: AuthenticateService
+  ) {}
 
   ngOnInit(): void {
     this.dropdownTags = tagDropdownArray;
@@ -40,6 +45,10 @@ export class CreatePostComponent implements OnInit {
       this.post.tags.push('other');
     } else {
       this.post.tags = this.selectedTags;
+    }
+
+    if (this.authenticateService.isLogged) {
+      this.post.username = this.authenticateService.getTokenUsername();
     }
 
     this.postService.addPost(this.post).subscribe(

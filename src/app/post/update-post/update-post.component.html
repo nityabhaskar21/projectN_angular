@@ -1,7 +1,7 @@
 <header class="display-4 text-center mb-1">Add Post</header>
 
 <div [hidden]="!msg" class="alert alert-success">{{msg}}</div>
-<form #frm="ngForm" class="container" (ngSubmit)="addPost()">
+<form #frm="ngForm" class="container" (ngSubmit)="updatePost()">
   <div class="row">
     <div class="col-4 form-group">
       <label for="posttitle">Title</label>
@@ -11,7 +11,7 @@
         <div *ngIf="posttitle.errors.required">Title is required.</div>
         <div *ngIf="posttitle.errors.minlength">Title must be atleast 3 characters long.</div>
         <div *ngIf="posttitle.errors.maxlength">Title must be maximum 30 characters long.</div>
-        <div *ngIf="posttitle.errors.pattern">Title must not contain special characters.</div>
+        <div *ngIf="posttitle.errors.pattern">Title must not contain spaces or special characters.</div>
       </div>
     </div>
     <div class="col-4 form-group">
@@ -37,10 +37,10 @@
     <div class="col-8 form-group">
       <label for="postdesc">Description</label>
       <input [(ngModel)]="post.description" #postdesc="ngModel" name="txtpostdesc" type="text" id="postdesc"
-        class="form-control" required minlength="60" maxlength="300" pattern="[0-9a-zA-Z_ .]*" autocomplete="off">
+        class="form-control" required minlength="30" maxlength="300" pattern="[0-9a-zA-Z_ .]*" autocomplete="off">
       <div class="alert alert-danger" *ngIf="postdesc.touched && !postdesc.valid">
         <div *ngIf="postdesc.errors.required">Description is required.</div>
-        <div *ngIf="postdesc.errors.minlength">Description must be atleast 60 characters long.</div>
+        <div *ngIf="postdesc.errors.minlength">Description must be atleast 30 characters long.</div>
         <div *ngIf="postdesc.errors.maxlength">Description must be maximum 300 characters long.</div>
         <div *ngIf="postdesc.errors.pattern">Description must not contain special characters.</div>
       </div>
@@ -82,5 +82,5 @@
     </div>
 
   </div>
-  <button class="btn btn-primary" [disabled]="!frm.valid">Create Post</button>
+  <button class="btn btn-primary" [disabled]="!frm.valid">Update Post</button>
 </form>
