@@ -1,4 +1,4 @@
-import { Post } from '../post';
+import { Post } from '../post/post';
 import { Role } from './role';
 
 export class User {

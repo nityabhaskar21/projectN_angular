@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Post } from './post';
 import { catchError } from 'rxjs/operators';
-import { AuthenticateService } from './user/authenticate.service';
+import { AuthenticateService } from './../user/authenticate.service';
 
 @Injectable({
   providedIn: 'root'

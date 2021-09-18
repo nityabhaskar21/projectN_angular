@@ -1,26 +1,30 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PostsService } from '../posts.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '../post';
-import { tagDropdownArray } from './../util/tagArray';
+import { tagDropdownArray } from './../../util/tagArray';
 import { NgForm } from '@angular/forms';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
-  selector: 'app-create-post',
-  templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.scss']
+  selector: 'app-update-post',
+  templateUrl: './update-post.component.html',
+  styleUrls: ['./update-post.component.scss']
 })
-export class CreatePostComponent implements OnInit {
+export class UpdatePostComponent implements OnInit {
   post: Post = new Post();
   dropdownTags = [];
-  selectedTags: [] = [];
+  selectedTags: string[] = [];
   dropdownSettings: IDropdownSettings;
   msg!: string;
   @ViewChild('frm')
   form: NgForm;
 
-  constructor(public postService: PostsService, public router: Router) {}
+  constructor(
+    public postService: PostsService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.dropdownTags = tagDropdownArray;
@@ -32,9 +36,17 @@ export class CreatePostComponent implements OnInit {
       itemsShowLimit: 5,
       allowSearchFilter: true
     };
+
+    this.activatedRoute.paramMap.subscribe(params =>
+      this.postService.viewPostById(params.get('id')).subscribe(data => {
+        this.post = data;
+        this.selectedTags = this.post.tags;
+        console.log('Get Post: ', this.post);
+      })
+    );
   }
 
-  addPost() {
+  updatePost() {
     console.log(this.selectedTags);
     if (this.selectedTags.length === 0) {
       this.post.tags.push('other');
@@ -42,14 +54,16 @@ export class CreatePostComponent implements OnInit {
       this.post.tags = this.selectedTags;
     }
 
-    this.postService.addPost(this.post).subscribe(
+    this.postService.updatePost(this.post).subscribe(
       res => {
         console.log('res', res);
-        this.msg = 'Post added!';
+        this.msg = 'Post updated!';
         this.router.navigateByUrl('/posts');
       },
       HttpError => {
-        this.msg = HttpError.error;
+        this.msg = HttpError.error.text;
+        this.router.navigateByUrl('/posts');
+        console.log('Error in update: ', HttpError);
       }
     );
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { PostsService } from '../posts.service';
 import { Post } from './../post';
-import { LoadingService } from '../util/loading.service';
+import { LoadingService } from '../../util/loading.service';
 
 @Component({
   selector: 'app-viewall-posts',

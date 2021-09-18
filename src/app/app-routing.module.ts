@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ViewallPostsComponent } from './viewall-posts/viewall-posts.component';
+import { ViewallPostsComponent } from './post/viewall-posts/viewall-posts.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ViewPostByIdComponent } from './view-post-by-id/view-post-by-id.component';
-import { CreatePostComponent } from './create-post/create-post.component';
-import { UpdatePostComponent } from './update-post/update-post.component';
+import { ViewPostByIdComponent } from './post/view-post-by-id/view-post-by-id.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
+import { UpdatePostComponent } from './post/update-post/update-post.component';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { SignupComponent } from './user/signup/signup.component';
 import { LoginComponent } from './user/login/login.component';

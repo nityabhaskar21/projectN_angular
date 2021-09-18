@@ -13,13 +13,13 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ViewallPostsComponent } from './viewall-posts/viewall-posts.component';
-import { ViewPostByIdComponent } from './view-post-by-id/view-post-by-id.component';
+import { ViewallPostsComponent } from './post/viewall-posts/viewall-posts.component';
+import { ViewPostByIdComponent } from './post/view-post-by-id/view-post-by-id.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SpinnerComponent } from './util/spinner/spinner.component';
 import { InterceptorService } from './util/interceptor.service';
-import { CreatePostComponent } from './create-post/create-post.component';
-import { UpdatePostComponent } from './update-post/update-post.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
+import { UpdatePostComponent } from './post/update-post/update-post.component';
 import { CreateUserComponent } from './user/create-user/create-user.component';
 import { LoginComponent } from './user/login/login.component';
 import { SignupComponent } from './user/signup/signup.component';

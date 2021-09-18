@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoadingService } from '../util/loading.service';
+import { LoadingService } from '../../util/loading.service';
 
 import { Post } from './../post';
 import { PostsService } from '../posts.service';
-import { AuthenticateService } from '../user/authenticate.service';
+import { AuthenticateService } from '../../user/authenticate.service';
 
 @Component({
   selector: 'app-view-post-by-id',
