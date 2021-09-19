@@ -19,11 +19,13 @@
             titlecase | slice:0:8}}
       </a>
       <ul class="dropdown-menu dropdown-menu-dark" *ngIf="toggleButtonVisible" id="nav-dropdown-menu">
-        <li><a class="dropdown-item" routerLink="/users/logout" (click)="toggleButton()">Logout</a></li>
+        <li><a class="dropdown-item" (click)="toggleButton(); modalService.showLogoutModal()">Logout</a></li>
       </ul>
     </li>
   </ul>
 
 </nav>
-
-<router-outlet></router-outlet>
+<app-logout *ngIf="modalService.getIsShowLogoutModal()"></app-logout>
+<div [ngClass]="modalService.getIsShowLogoutModal() ? 'overflow': ''">
+  <router-outlet></router-outlet>
+</div>
