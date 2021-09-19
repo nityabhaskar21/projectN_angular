@@ -5,7 +5,6 @@ import { LoadingService } from '../../util/loading.service';
 import { Post } from './../post';
 import { PostsService } from '../posts.service';
 import { AuthenticateService } from '../../user/authenticate.service';
-import { post } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-view-post-by-id',
