@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticateService } from './user/authenticate.service';
+import { ModalService } from './util/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,10 @@ export class AppComponent {
   isLogged: Boolean = false;
   toggleButtonVisible: Boolean = false;
 
-  constructor(public authenticateService: AuthenticateService) {
+  constructor(
+    public authenticateService: AuthenticateService,
+    public modalService: ModalService
+  ) {
     this.username = this.authenticateService.getTokenUsername();
     this.isLogged = this.authenticateService.isLogged();
   }
