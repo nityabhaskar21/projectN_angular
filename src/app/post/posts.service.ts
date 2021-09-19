@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Post } from './post';
 import { catchError } from 'rxjs/operators';
@@ -18,9 +18,23 @@ export class PostsService {
   }
 
   urlString: string;
+  total_no_of_pages: number = 0;
 
   viewAllPosts(): Observable<any> {
     return this.http.get(this.urlString);
+  }
+
+  viewAllPostsByPage(pageno: number): Observable<any> {
+    const params = new HttpParams().set('pageno', pageno).set('pagesize', 9);
+    return this.http.get(this.urlString + '/page', { params });
+  }
+
+  getTotalNoOfPages(): number {
+    return this.total_no_of_pages;
+  }
+
+  setTotalNoOfPages(pages: number): void {
+    this.total_no_of_pages = pages;
   }
 
   viewPostById(id: string): Observable<any> {

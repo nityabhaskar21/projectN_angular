@@ -14,9 +14,10 @@ import { ViewallUsersComponent } from './user/viewall-users/viewall-users.compon
 import { AuthGuard } from './user/auth.guard';
 import { Role } from './user/role';
 import { LogoutComponent } from './user/logout/logout.component';
+import { ViewAllPostsPaginationComponent } from './post/view-all-posts-pagination/view-all-posts-pagination.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/posts', pathMatch: 'full' },
+  { path: '', redirectTo: '/posts/page/0', pathMatch: 'full' },
   {
     path: 'users/create',
     component: CreateUserComponent,
@@ -48,6 +49,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { path: 'posts/:id', component: ViewPostByIdComponent },
+  { path: 'posts/page/:pageno', component: ViewAllPostsPaginationComponent },
   { path: 'posts', component: ViewallPostsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

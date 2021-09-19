@@ -28,6 +28,7 @@ import { ViewallUsersComponent } from './user/viewall-users/viewall-users.compon
 import { ViewUserByIdComponent } from './user/view-user-by-id/view-user-by-id.component';
 import { ViewUserByUsernameComponent } from './user/view-user-by-username/view-user-by-username.component';
 import { LogoutComponent } from './user/logout/logout.component';
+import { ViewAllPostsPaginationComponent } from './post/view-all-posts-pagination/view-all-posts-pagination.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { LogoutComponent } from './user/logout/logout.component';
     ViewallUsersComponent,
     ViewUserByIdComponent,
     ViewUserByUsernameComponent,
-    LogoutComponent
+    LogoutComponent,
+    ViewAllPostsPaginationComponent
   ],
   imports: [
     BrowserModule,
