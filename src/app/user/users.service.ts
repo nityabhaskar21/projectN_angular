@@ -47,7 +47,7 @@ export class UsersService {
           let token = res.jwt;
           if (token && token.length != 0) {
             this.authService.addToken(token);
-            this.router.navigateByUrl('/posts').then(() => {
+            this.router.navigateByUrl('/posts/page/0').then(() => {
               window.location.reload();
             });
             resolve('success');
